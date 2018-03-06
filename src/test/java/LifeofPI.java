@@ -17,18 +17,17 @@ public class LifeofPI {
         Workbook workbook = WorkbookFactory.create(new File(SAMPLE_XLSX_FILE_PATH));
         Workbook workbook1 = WorkbookFactory.create(new File(SAMPLE_XLSX_FILE_PATH1));
         Workbook workbook2 = new XSSFWorkbook();
-        CreationHelper createHelper = workbook2.getCreationHelper();
         Sheet sheetN = workbook2.createSheet("RES");
 
-        // Create a Font for styling header cells
-        Font headerFont = workbook2.createFont();
-        headerFont.setBold(true);
-        headerFont.setFontHeightInPoints((short) 14);
-        headerFont.setColor(IndexedColors.RED.getIndex());
+//        // Create a Font for styling header cells
+//        Font headerFont = workbook2.createFont();
+//        headerFont.setBold(true);
+//        headerFont.setFontHeightInPoints((short) 14);
+//        headerFont.setColor(IndexedColors.RED.getIndex());
 
         // Create a CellStyle with the font
-        CellStyle headerCellStyle = workbook2.createCellStyle();
-        headerCellStyle.setFont(headerFont);
+//        CellStyle headerCellStyle = workbook2.createCellStyle();
+//        headerCellStyle.setFont(headerFont);
 
 
         // Retrieving the number of sheets in the Workbook
@@ -93,7 +92,7 @@ public class LifeofPI {
                 Cell eachCell = headerRow.createCell(j);
                 String cellValueN = dataFormatter.formatCellValue(eachRow.getCell(j));
                 eachCell.setCellValue(cellValueN);
-                eachCell.setCellStyle(headerCellStyle);
+                eachCell.setCellStyle(eachCell.getCellStyle());
             }
         }
 
